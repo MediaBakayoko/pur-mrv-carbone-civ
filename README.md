@@ -74,28 +74,65 @@ zones a fort/faible stock de carbone relatif**, utile pour prioriser les
 interventions agroforestieres, et non comme un chiffre certifiable en
 l'etat pour un credit carbone.
 
+## Complement : cartographie du Leaf Area Index (LAI)
+
+Script : `scripts/lai_pur.js` — cartes : `maps/lai/`
+
+Le LAI (indice de surface foliaire) mesure la densite du couvert vegetal et
+sert de variable exploratoire pour comprendre l'heterogeneite du modele de
+carbone (R2 = 0.28) : une zone a LAI tres variable est mecaniquement plus
+difficile a modeliser par un signal optique seul.
+
+Methode : estimation LAI a 10m par relation empirique NDVI (Sentinel-2,
+modele exponentiel a coefficient d'extinction k=0.5, calibration usuelle
+foret tropicale), avec le produit officiel MODIS MOD15A2H (500m) comme
+reference de controle.
+
+Resultats 2024 sur la zone PUR (buffer 10 km) :
+
+| Indicateur | Valeur |
+|---|---|
+| LAI moyen (Sentinel-2, 10m) | 2,25 (ecart-type 0,69, min 0,76, max 4,61) |
+| LAI moyen (MODIS, reference officielle 500m) | 1,07 |
+| Surface vegetalisee analysee | ~27 900 ha |
+
+**Limite methodologique assumee** : le LAI estime par Sentinel-2 est environ
+2 fois superieur au produit MODIS de reference sur cette zone. C'est une
+limite documentee de la relation empirique NDVI -> LAI, qui a tendance a
+surestimer en couvert dense (saturation du signal optique, meme phenomene
+que celui identifie dans le modele de carbone). A traiter comme un
+indicateur **relatif** de densite de couvert (utile pour comparer des zones
+entre elles), pas comme une mesure LAI absolue calibree. Seulement 3 images
+Sentinel-2 disponibles sans nuage sur 2024 pour cette zone (contre 9 pour le
+carbone), ce qui limite egalement la robustesse temporelle de l'estimation.
+
 ## Utilisation
 
 1. Ouvrir [Google Earth Engine Code Editor](https://code.earthengine.google.com).
-2. Copier-coller le contenu de `scripts/mrv_carbone_pur.js`.
+2. Copier-coller le contenu de `scripts/mrv_carbone_pur.js` (carbone) ou
+   `scripts/lai_pur.js` (LAI).
 3. Cliquer sur **Run**.
-4. Consulter la Console pour les statistiques R2/RMSE et le rapport MRV.
-5. Onglet **Tasks** : lancer les deux exports (GeoTIFF carte + CSV points
-   de validation) vers Google Drive.
-6. Pour le monitoring annuel suivant : changer la variable `YEAR` en tete
-   de script et relancer. Comparer les stocks totaux d'une annee sur
-   l'autre permet de suivre l'additionnalite carbone du projet.
+4. Consulter la Console pour les statistiques (R2/RMSE pour le carbone,
+   moyenne/ecart-type pour le LAI).
+5. Onglet **Tasks** : lancer les exports (GeoTIFF) vers Google Drive.
+6. Pour le monitoring annuel suivant : changer la variable `YEAR`/date en
+   tete de script et relancer. Comparer les resultats d'une annee sur
+   l'autre permet de suivre l'evolution dans le temps.
 
 ## Structure du depot
 
 ```
 scripts/
-  mrv_carbone_pur.js      Script GEE complet (JavaScript, Code Editor)
+  mrv_carbone_pur.js      Script GEE carbone AGB (JavaScript, Code Editor)
+  lai_pur.js              Script GEE LAI (JavaScript, Code Editor)
 maps/
   01_carte_carbone_AGB_tCha.png       Carte du stock de carbone (tC/ha)
   02_NDVI_controle.png                NDVI de controle
   03_composite_vraies_couleurs.png    Composite Sentinel-2 vraies couleurs
   04_points_GEDI_verite_terrain.png   Localisation des points GEDI utilises
+  lai/
+    01_carte_LAI_2024.png             Carte du LAI (Sentinel-2, 10m)
+    02_composite_vraies_couleurs_2024.png  Composite de reference
 docs/
   Rapport_MRV_Carbone_PUR.docx        Rapport d'interpretation complet
 ```
@@ -104,6 +141,7 @@ docs/
 
 - Sentinel-2 Niveau 2A : `COPERNICUS/S2_SR_HARMONIZED` (ESA/Copernicus)
 - GEDI L4A (biomasse aerienne) : `LARSE/GEDI/GEDI04_A_002` (NASA)
+- MODIS LAI/FPAR : `MODIS/061/MOD15A2H` (NASA)
 - Frontieres administratives : `FAO/GAUL/2015/level0`
 
 ## Auteur
