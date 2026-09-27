@@ -1,0 +1,139 @@
+{
+  "modis_2001": {
+    "Grasslands": 84.52,
+    "Croplands": 0.82,
+    "Urban and Built-up": 0.07,
+    "Evergreen Broadleaf Forest": 0.02,
+    "Deciduous Broadleaf Forest": 0.47,
+    "Mixed Forest": 0.68,
+    "Woody Savannas": 0.08,
+    "Savannas": 13.35
+  },
+  "modis_2012": {
+    "Grasslands": 90.73,
+    "Croplands": 0.02,
+    "Urban and Built-up": 0.07,
+    "Deciduous Broadleaf Forest": 0.22,
+    "Mixed Forest": 0.16,
+    "Woody Savannas": 0.04,
+    "Savannas": 8.76
+  },
+  "modis_2024": {
+    "Grasslands": 95.3,
+    "Permanent Wetlands": 0.02,
+    "Croplands": 0.05,
+    "Urban and Built-up": 0.07,
+    "Deciduous Broadleaf Forest": 0.01,
+    "Mixed Forest": 0.26,
+    "Savannas": 4.29
+  },
+  "modis_serie_temporelle_cropland_strict_km2": [
+    {
+      "annee": 2001,
+      "surface_km2": 29.792882347058804
+    },
+    {
+      "annee": 2002,
+      "surface_km2": 6.419777605637257
+    },
+    {
+      "annee": 2003,
+      "surface_km2": 3.3919785523897064
+    },
+    {
+      "annee": 2004,
+      "surface_km2": 1.24489253125
+    },
+    {
+      "annee": 2005,
+      "surface_km2": 0.74693215625
+    },
+    {
+      "annee": 2006,
+      "surface_km2": 0.995910296875
+    },
+    {
+      "annee": 2007,
+      "surface_km2": 2.303296155759804
+    },
+    {
+      "annee": 2008,
+      "surface_km2": 2.4898067948529414
+    },
+    {
+      "annee": 2009,
+      "surface_km2": 1.120926061519608
+    },
+    {
+      "annee": 2010,
+      "surface_km2": 0.8719425146446079
+    },
+    {
+      "annee": 2011,
+      "surface_km2": 1.24491959375
+    },
+    {
+      "annee": 2012,
+      "surface_km2": 0.7469474375
+    },
+    {
+      "annee": 2013,
+      "surface_km2": 0
+    },
+    {
+      "annee": 2014,
+      "surface_km2": 1.6803637015931374
+    },
+    {
+      "annee": 2015,
+      "surface_km2": 5.661155979411765
+    },
+    {
+      "annee": 2016,
+      "surface_km2": 6.659979623468137
+    },
+    {
+      "annee": 2017,
+      "surface_km2": 4.419160451593137
+    },
+    {
+      "annee": 2018,
+      "surface_km2": 3.7347220624999995
+    },
+    {
+      "annee": 2019,
+      "surface_km2": 1.9918671249999997
+    },
+    {
+      "annee": 2020,
+      "surface_km2": 1.7428848281249998
+    },
+    {
+      "annee": 2021,
+      "surface_km2": 1.7428825937499999
+    },
+    {
+      "annee": 2022,
+      "surface_km2": 0.248983
+    },
+    {
+      "annee": 2023,
+      "surface_km2": 1.74286803125
+    },
+    {
+      "annee": 2024,
+      "surface_km2": 1.991853234375
+    }
+  ],
+  "esa_worldcover_2021": {
+    "Tree cover": 33.29,
+    "Shrubland": 19.37,
+    "Grassland": 10.33,
+    "Cropland": 36.04,
+    "Built-up": 0.43,
+    "Bare/sparse vegetation": 0.29,
+    "Permanent water bodies": 0.19,
+    "Herbaceous wetland": 0.06
+  },
+  "surface_totale_zone_km2": 3638.6411728188964
+}
